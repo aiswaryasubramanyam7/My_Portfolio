@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Nothing+You+Could+Do&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  overflow: hidden; /* Prevent body scroll, handle scroll in main-content */
+}
+
+/* --- Main Layout --- */
+.app-container {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Fixed sidebar, fluid content */
+  height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  border-right: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  position: relative;
+}
+
+/* Optional: The small black arrow tab at the top right of the sidebar */
+.sidebar::after {
+  content: '←';
+  position: absolute;
+  top: 0;
+  right: -2px;
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  transform: translateX(100%);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: inline-block;
+  border-bottom: 3px solid #000;
+  padding-bottom: 5px;
+}
+
+.nav-menu {
+  list-style: none;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu li {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+/* Highlights the currently selected menu item */
+.nav-menu a.active-link {
+  background-color: #ffc107; 
+  color: #000;
+}
+
+.sidebar-footer {
+  text-align: center;
+  padding: 0 30px;
+}
+
+.sidebar-footer hr {
+  border: none;
+  border-top: 2px solid #000;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  color: #000;
+  text-decoration: none;
+  font-size: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.copyright {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #666;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+  display: flex;
+  flex-direction: column; /* This is crucial: Stacks sections vertically */
+  align-items: flex-start; /* Aligns content to the left */
+  padding: 60px 100px;
+  overflow-y: auto; /* Enables scrolling */
+  scroll-behavior: smooth; /* Makes the sidebar links glide smoothly! */
+  height: 100vh; /* Ensures the scroll container knows its height */
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* --- Image Styling with Offset Border --- */
+.image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* The solid yellow block behind the image */
+.image-bg {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: -20px;
+  right: -20px;
+  background-color: #ffc107;
+  z-index: 1;
+}
+
+/* The black border box over the image */
+.image-border {
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  left: -15px;
+  right: -15px;
+  border: 4px solid #000;
+  z-index: 3;
+}
+
+.image-container img {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  z-index: 2;
+  display: block;
+}
+
+/* --- Text Content --- */
+.text-content {
+  flex: 1;
+}
+
+.text-content h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  display: inline-block;
+  border-bottom: 3px solid #000; 
+
+  letter-spacing: 1px;
+}
+
+.text-content hr {
+  display: none; 
+}
+
+.text-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.signature {
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 32px;
+  color: #000;
+}
+
+/* --- Reusable Page Sections --- */
+.page-section {
+  padding: 80px 0;
+  max-width: 900px;
+  width: 100%;
+}
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #ffc107; /* The signature yellow */
+  margin-top: 10px;
+}
+
+.about-content p, .contact-container p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* --- Timeline (For Education) --- */
+.timeline {
+  border-left: 3px solid #000;
+  padding-left: 30px;
+  margin-left: 10px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffc107;
+  border: 3px solid #000;
+  border-radius: 50%;
+}
+
+.timeline-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.timeline-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.timeline-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* --- Grids and Cards (For Projects, Internships, etc.) --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  border: 3px solid #000;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0px #ffc107; /* Yellow shadow effect */
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.highlight-text {
+  font-weight: 700;
+  color: #000 !important;
+}
+
+.AdditionalInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+.info-languages {
+  list-style-type: square;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: #444;
+}
+.info-achievements {
+  list-style-type: square;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: #444;
+}
+.info-hobbies {
+  list-style-type: square;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: #444;
+}
+.info-ss {
+  list-style-type: square;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: #444;
+}
+
+/* --- Buttons --- */
+.action-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #ffc107;
+  color: #000;
+}
+
+/* --- Contact Links --- */
+.contact-links p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.contact-links a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 2px solid #ffc107;
+  transition: background-color 0.2s;
+}
+
+.contact-links a:hover {
+  background-color: #ffc107;
+}
+
+/* --- Hero Buttons --- */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #000;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* --- Hire Me Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border: 4px solid #000;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 15px 15px 0px #ffc107;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #000;
+  line-height: 1;
+}
+
+.modal-content h2 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  outline: none;
+  border-color: #ffc107;
+}
+/* --- Sidebar Action Buttons --- */
+.sidebar-action-buttons {
+  display: flex;
+  flex-direction: column; /* Stacks the buttons vertically */
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.sidebar-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-hire {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-hire:hover {
+  background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+
+.btn-cv {
+   background-color: #000;
+  color: #fff;
+}
+
+.btn-cv:hover {
+   background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+/* --- Certificate Image Modal Specifics --- */
+.cert-modal {
+  max-width: 800px; /* Make the window a bit wider for documents */
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cert-image {
+  max-width: 100%;
+  max-height: 80vh; /* Ensures the image never taller than the screen */
+  object-fit: contain; /* Keeps the aspect ratio perfect */
+  border: 1px solid #ddd;
+}
