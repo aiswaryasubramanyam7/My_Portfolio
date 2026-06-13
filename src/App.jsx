@@ -10,6 +10,7 @@ import Internships from './components/Internships';
 import Certifications from './components/Certifications';
 import AdditionalInfo from './components/AdditionalInfo';
 import Contact from './components/Contact';
+import Skills from './components/Skills';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <li><NavLink to="/certifications" className={({ isActive }) => isActive ? "active-link" : ""}>CERTIFICATIONS</NavLink></li>
             <li><NavLink to="/additional-info" className={({ isActive }) => isActive ? "active-link" : ""}>ADDITIONAL INFORMATION</NavLink></li>
             <li><NavLink to="/contact" className={({ isActive }) => isActive ? "active-link" : ""}>CONTACT DETAILS</NavLink></li>
+            <li><NavLink to="/skills" className={({ isActive }) => isActive ? "active-link" : ""}>SKILLS</NavLink></li>
           </ul>
 
          <div className="sidebar-footer">
